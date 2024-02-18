@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IT=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+        <title>Khong phai virus</title>
+    </head>
+    <style>
+        html{
+    background-color: #FF6E79;
+}
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 25vh;
+    background-color: #FF6E79;
+}
+.main h1 {
+    font-family: 'Roboto', sans-serif;
+    color: #F3F3F4;
+    font-size: 26px;
+    text-align: center;
+}
+.button-1 {
+    background-color: #F3F3F4;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FF6E79;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+}
+.btns {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+}
+#yes {
+    margin-left: -120px;
+    margin-right: 16px;
+    background-color: #F3F3F4;
+    transition: all 0.1s ease;
+}
+#no {
+    left: 50px;
+    top: 0px;
+    width: 120px;
+    position: absolute;
+    transition: all 0.1s ease;
+}
+#text {
+    color: #F3F3F4;
+}
+    </style>
+    <body>
+        <div class="main">
+            <h1 id="text">Tôi lên đón em về Hà Nội xem phim với tôi nhé?</h1>
+            <div class="btns">
+                <button
+                    id="yes"
+                    class="button-1"
+                    role="button"
+                    onclick="done()"
+                >
+                    Em đồng ý</button>
+    
+                <button
+                    id="no"
+                    class="button-1"
+                    role="button"
+                    onclick="changePosition(this)"
+                >
+                    Không</button>
+            </div>
+        </div>
+        <script>
+            var lastX = -1
+            var cnt = 0
+
+            function done() {
+                var noBtn = document.getElementById('no');
+                var yesBtn = document.getElementById('yes');
+                var tx = document.getElementById('text');
+                noBtn.style.display = 'none';
+                yesBtn.style.display = 'none';
+                tx.innerHTML = 'Tôi biết em sẽ đồng ý mà. Cuối tuần nhé :)))'
+            }
+
+            function changePosition(target){
+                let x = Math.floor(Math.random() * 5);
+                if (x == lastX) changePosition(target);
+                if (cnt++ >= 10) {
+                    target.style.display = 'none';
+                    document.getElementById('yes').style.fontSize = '40px';
+                    document.getElementById('yes').style.marginLeft = "0px"
+                }
+                switch (x) {
+                    case 0:
+                        target.style.top = '100px';
+                        target.style.left = '150px';
+                        break;
+                    case 1:
+                        target.style.top = '-100px';
+                        target.style.left = '-100px';
+                        break;
+                    case 2:
+                        target.style.top = '150px';
+                        target.style.left = '-200px';
+                        break;
+                    case 3:
+                        target.style.top = '120px';
+                        target.style.left = '-280px';
+                        break;
+                    case 4:
+                        target.style.top = '160px';
+                        target.style.left = '-90px';
+                        break;
+                    case 5: 
+                        target.style.top = '-200px';
+                        target.style.left = '-150px';
+                        break;
+                }
+            }
+        </script>
+
+    </body>
+
+</html>
